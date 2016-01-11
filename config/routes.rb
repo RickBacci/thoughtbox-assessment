@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1, defaults: { format: :json } do
-      resources :thoughts, only: [:index]
+      resources :links, only: [:index]
     end
   end
 
-  root 'api/v1/thoughts#index'
+  root 'api/v1/links#index'
 end
