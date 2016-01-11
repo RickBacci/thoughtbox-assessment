@@ -30,5 +30,10 @@ RSpec.describe User, type: :model do
     expect(user)
     expect(user2.save).to eql(false)
   end
+
+  it 'has a confirmed password' do
+    user = User.create(email: 'test@email.com', password: 'password', password_confirmation: 'password')
+    expect(user)
+  end
 end
 
