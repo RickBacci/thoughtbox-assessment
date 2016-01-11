@@ -1,9 +1,6 @@
-<h1>ThoughtBox</h1>
+<h1>Welcome to ThoughtBox</h1>
 
 <% if current_user %>
-
-  <h1>Welcome</h1>
-
   <br>
   <% if @link.errors.any? %>
     <div id="error_explanation">
@@ -17,6 +14,7 @@
     </div>
   <% end %>
   <br>
+
   <%= form_for(@link) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -29,18 +27,23 @@
   <br>
 
   <table>
-    <% @links.each do |link| %>
+    <% current_user.links.each do |link| %>
       <tr class="link-row <%= link.status %>">
-        <td>
-          <%= link.title %>
-        </td>
-        <td>
-          <%= link.url %>
-        </td>
-        <td id="link-status-<%= link.id %>">
-          <%= link_status(link) %>
-        </td>
-      </tr>
+        <% if link.id %>
+          <td>
+            <%= link.title %>
+          </td>
+          <td>
+            <%= link.url %>
+          </td>
+          <td id="link-status-<%= link.id %>">
+            <%= link_status(link) %>
+          </td>
+          <td>
+            <a href="#" data-id="<%= link.id %>" class="status update-status-<%= link.id %>">Mark as <%= link_action(link) %></a>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </table>
 
