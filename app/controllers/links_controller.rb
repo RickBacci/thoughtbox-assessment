@@ -25,6 +25,17 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
   end
 
+  def update
+    @link = Link.find(params[:id])
+    if @link.update(link_params)
+      flash[:success] = "Link was successfully updated!"
+      redirect_to links_path
+    else
+      flash[:failure] = "There was a problem updating your link!"
+      redirect_to :back
+    end
+  end
+
   def update_status
     link = current_user.links.find(params[:link][:id])
 

@@ -1,0 +1,38 @@
+<h1>Edit Link</h1>
+
+<% if current_user %>
+  <br>
+    <%= link_to "Logout", logout_path, method: :delete %>
+  <br>
+    <%= link_to "Home", links_path %>
+  <br>
+  <br>
+
+  <% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+        <% @link.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for(@link) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+
+    <%= f.submit "Update Link" %>
+  <% end %>
+<% else %>
+
+  <%= link_to "Sign Up", new_user_path %>
+  <br>
+  <%= link_to "Login", new_session_path %>
+  <br>
+<% end %>
+
