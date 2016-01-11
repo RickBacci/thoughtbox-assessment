@@ -42,6 +42,9 @@
           <td>
             <a href="#" data-id="<%= link.id %>" class="status update-status-<%= link.id %>">Mark as <%= link_action(link) %></a>
           </td>
+          <td>
+            <a href="/links/<%= link.id %>/edit" data-id="<%= link.id %>" class="edit-link-<%= link.id %>">Edit</a>
+          </td>
         </tr>
       <% end %>
     <% end %>
