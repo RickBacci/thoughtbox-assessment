@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'api/v1/thoughts#index'
+
+  resources :users, only: [:new, :create]
 
   namespace :api do
     namespace :v1, defaults: { format: :json } do
@@ -7,4 +8,5 @@ Rails.application.routes.draw do
     end
   end
 
+  root 'api/v1/thoughts#index'
 end

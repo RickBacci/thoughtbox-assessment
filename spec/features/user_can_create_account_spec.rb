@@ -4,7 +4,7 @@ RSpec.feature "User", type: :feature do
 
   it 'can create an account' do
 
-    visit api_v1_thoughts_path
+    visit root_path
 
     click_link "Sign Up"
     fill_in "Email", with: 'user@email.com'

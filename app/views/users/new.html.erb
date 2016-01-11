@@ -1,0 +1,13 @@
+<h1>Register as a new user</h1>
+
+<%= form_for(@user) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :confirmation %>
+  <%= f.password_field :confirmation %>
+
+  <%= f.submit "Create Account" %>
+<% end %>
+
