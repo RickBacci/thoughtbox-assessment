@@ -1,0 +1,38 @@
+<h1>ThoughtBox</h1>
+
+<% if current_user %>
+
+  <h1>Welcome</h1>
+
+  <br>
+  <br>
+  <%= form_for(@link) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+
+    <%= f.submit "Add Link" %>
+  <% end %>
+  <br>
+  <br>
+
+  <table>
+    <% @links.each do |link| %>
+      <tr class="link-row <%= link.status %>">
+        <td>
+          <%= link.title %>
+        </td>
+        <td>
+          <%= link.url %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= link_to "Logout", logout_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign Up", new_user_path  %>
+  <%= link_to "Login", new_session_path  %>
+  <br>
+<% end %>
