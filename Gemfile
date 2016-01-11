@@ -15,6 +15,7 @@ gem "validate_url"
 gem 'rails_12factor', group: :production
 
 
+
 group :development, :test do
   gem 'byebug'
   gem 'pry'
@@ -26,5 +27,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rspec-rails', '~> 3.0'
   gem 'simplecov', :require => false
+  gem 'selenium-webdriver'
 end
 
