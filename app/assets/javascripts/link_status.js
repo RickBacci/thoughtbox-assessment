@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-  $('tr.true').css({ 'color': 'red' })
-
   $('tr.link-row').on('click', function(event) {
 
     if (event.target.innerText === "Edit") {
@@ -27,16 +25,16 @@ $(document).ready(function() {
 
           if ( buttonText.localeCompare("Mark as Read") ) {
             event.target.text = "Mark as Read"
-            var linkId = event.target.dataset.id;
-            var buildId = "#link-status-" + linkId
-            $(buildId).text = 'Read';
+            var linkId        = event.target.dataset.id;
+            var buildId       = "#link-status-" + linkId
+            $(buildId).text   = 'Read';
 
             $(getRow).addClass('black').removeClass('red')
           } else {
-            var linkId = event.target.dataset.id;
-            var buildId = "#link-status-" + linkId
             event.target.text = "Mark as Unread"
-            $(buildId).text = 'Unread';
+            var linkId        = event.target.dataset.id;
+            var buildId       = "#link-status-" + linkId
+            $(buildId).text   = 'Unread';
 
             $(getRow).addClass('red').removeClass('black')
           }
