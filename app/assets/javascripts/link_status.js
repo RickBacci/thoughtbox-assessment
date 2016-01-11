@@ -21,21 +21,21 @@ $(document).ready(function() {
         data: {link: { id: linkId}},
         success: function(data) {
           var buttonText = event.target.text;
-          var getRow = event.target.parentNode.parentNode;
+          var getRow     = event.target.parentNode.parentNode;
+          var linkId     = event.target.dataset.id;
+          var buildId    = "#link-status-" + linkId
+
 
           if ( buttonText.localeCompare("Mark as Read") ) {
+
             event.target.text = "Mark as Read"
-            var linkId        = event.target.dataset.id;
-            var buildId       = "#link-status-" + linkId
-            $(buildId).text   = 'Read';
+            $(buildId).text('Unread')
 
             $(getRow).addClass('black').removeClass('red')
           } else {
             event.target.text = "Mark as Unread"
-            var linkId        = event.target.dataset.id;
-            var buildId       = "#link-status-" + linkId
-            $(buildId).text   = 'Unread';
-
+            $(buildId).text   = 'Read';
+            $(buildId).text('Read')
             $(getRow).addClass('red').removeClass('black')
           }
 
