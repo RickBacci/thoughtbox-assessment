@@ -26,10 +26,20 @@
   <br>
   <br>
 
-  <table>
-    <% current_user.links.each do |link| %>
-      <tr class="link-row <%= link.status %>">
-        <% if link.id %>
+
+  <table id='links' class="display table table-striped" cellspacing="0" width="75%">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Url</th>
+        <th></th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id='links-table'>
+      <% @links.each do |link| %>
+        <tr class="link-row <%= link.status %>">
           <td>
             <%= link.title %>
           </td>
@@ -47,8 +57,9 @@
           </td>
         </tr>
       <% end %>
-    <% end %>
+    </tbody>
   </table>
+
 
   <%= link_to "Logout", logout_path, method: :delete %>
 <% else %>

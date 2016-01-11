@@ -48,6 +48,9 @@ $(document).ready(function() {
     }
   });
 
+  $('#links').DataTable( {
+    "order": [[ 3, "desc" ]]
+  } );
 });
 
 
